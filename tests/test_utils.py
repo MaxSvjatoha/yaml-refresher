@@ -2,7 +2,11 @@ import sys
 import os
 
 # Add the parent directory to the Python module search path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+try:
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+except Exception as e:
+    print("Error setting path: {}".format(e))
+    print("Continuing anyway...")
 
 # Test functions inside ./utils/utils.py
 import utils.utils as utils
