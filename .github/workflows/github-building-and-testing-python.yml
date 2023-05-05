@@ -7,6 +7,9 @@ on: [push] # change this to [push, pull_request] to run on pull requests as well
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    timeout-minutes: 10 # if the job is running for more than 10 minutes, it will be cancelled
+
     strategy:
       matrix:
         python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", "3.x"] # 3.x is the latest version of Python 3
